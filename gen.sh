@@ -100,6 +100,30 @@ cat <<EOF > "$SCRIPT_DIR/pif.json"
 }
 EOF
 
+echo "Writing output to overlay/config.xml..."
+cat <<EOF > "$SCRIPT_DIR/overlay/frameworks/base/core/res/res/values/config.xml"
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Build properties from a GMS certified device against current platform SPL level -->
+    <string-array name="config_certifiedBuildProperties" translatable="false">
+        <item>MANUFACTURER:Google</item>
+        <item>MODEL:$MODEL</item>
+        <item>FINGERPRINT:$FINGERPRINT</item>
+        <item>BRAND:google</item>
+        <item>PRODUCT:$PRODUCT</item>
+        <item>DEVICE:$DEVICE</item>
+        <item>VERSION.RELEASE:16</item>
+        <item>ID:$ID</item>
+        <item>VERSION.INCREMENTAL:$INCREMENTAL</item>
+        <item>TYPE:user</item>
+        <item>TAGS:release-keys</item>
+        <item>VERSION.SECURITY_PATCH:$SECURITY_PATCH</item>
+        <item>VERSION.DEVICE_INITIAL_SDK_INT:32</item>
+    </string-array>
+</resources>
+EOF
+
 echo "Cleaning up temporary files..."
 rm -f versions.html latest.html beta.html ota.html metadata.txt
 
