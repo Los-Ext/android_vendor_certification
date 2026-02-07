@@ -9,5 +9,7 @@
     "ID": "BP41.250916.015.A1",
     "VERSION.INCREMENTAL": "14394230",
     "VERSION.SECURITY_PATCH": "2025-10-05",
+    "TYPE": "user",
+    "TAGS": "release-keys",
     "VERSION.DEVICE_INITIAL_SDK_INT": "32"
 }
